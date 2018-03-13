@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/subject/subject",
+    "pages/user/user"
+  ],
+
+
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "最新电影预告",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+
+
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/images/index.png",
+        "selectedIconPath": "/assets/images/index-active.png"
+      },
+      {
+        "pagePath": "pages/subject/subject",
+        "text": "分类",
+        "iconPath": "/assets/images/subject.png",
+        "selectedIconPath": "/assets/images/subject-active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "首页",
+        "iconPath": "/assets/images/user.png",
+        "selectedIconPath": "/assets/images/user-active.png"
+      }
+    ]
+  }
+  
+}
+
