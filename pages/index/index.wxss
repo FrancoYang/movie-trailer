@@ -37,3 +37,12 @@ page{
   color: #888;
 }
 
+.loading{
+  text-align: center;
+  height: 80rpx;
+  padding: 20rpx;
+}
+
+.loading image{
+  height: 100%;
+}

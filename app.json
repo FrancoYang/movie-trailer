@@ -33,7 +33,7 @@
       },
       {
         "pagePath": "pages/user/user",
-        "text": "首页",
+        "text": "用户",
         "iconPath": "/assets/images/user.png",
         "selectedIconPath": "/assets/images/user-active.png"
       }
