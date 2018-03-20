@@ -1,11 +1,9 @@
 {
   "pages": [
-    "pages/subject/subject",
     "pages/index/index",
-    
+    "pages/subject/subject",
     "pages/user/user"
   ],
-
 
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

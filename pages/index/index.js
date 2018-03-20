@@ -5,6 +5,7 @@ Page({
     movies:[],
     page:1,
     size:6,
+    // 从第1页开始每次显示6条电影信息
     loading:true
   },
 
@@ -21,17 +22,27 @@ Page({
 
     //发起网络请求
     wx.request({
-      url: 'https://db.miaov.com/doubanapi/movies/info?page=${page}&size=${size}',
+      url: `https://db.miaov.com/doubanapi/movies/info?page=${page}&size=${size}`,
+      //注意上面url后的网址是用的反引号`（来自ES6的模板字符串）而不是普通的引号
       success:(res)=>{
-        console.log(res)
-        const{data}=res.data //这里用到了ES6的解构赋值
+        const{data}=res.data 
+        //这里用到了ES6的解构赋值
         const movies=this.data.movies
 
         for(let i=0;i<data.length;i+=2){
           movies.push([data[i],data[i+1]?data[i+1]:null])
         }
         this.setData({movies,loading:false})
+        //网络请求完成后是loading消失，到要再次请求的时候再显示
       }
     })
+  },
+  
+  scrollHandler(){
+    const{page}=this.data
+    this.setData({
+      page:page+1
+    })
+    this.loadMovies()
   }
 })
