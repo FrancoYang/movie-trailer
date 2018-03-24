@@ -44,5 +44,12 @@ Page({
       page:page+1
     })
     this.loadMovies()
+  },
+
+  gotoDetailHandler(e){
+    const{id}=e.currentTarget.dataset
+    wx.navigateTo({
+      url:'../movie-detail/movie-detail?id='+id,
+    })
   }
 })
