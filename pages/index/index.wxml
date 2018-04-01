@@ -5,13 +5,14 @@
 
     <view class='movie-item' wx:for="{{movieData}}" wx:key="{{item._id}}" bindtap='gotoDetailHandler' data-id="{{item._id}}">
 
-      <image class='poster' lazy-load='true' mode="widthFix" src="{{'http://douban.newfq.com/'+item.posterKey+'?imageMogr2/thumbnail/x1680/crop/1080x1600'}}"></image>
+      <!-- <image class='poster' lazy-load='true' mode="widthFix" src="{{'http://douban.newfq.com/'+item.posterKey+'?imageMogr2/thumbnail/x1680/crop/1080x1600'}}"></image> -->
       <!-- image有13种mode,默认是scaleToFill（不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素），我们这里用widthFix，宽度不变，高度自动变化，保持原图宽高比不变，可以使原图完整地显示出来 -->
+      <image class='poster' lazy-load='true' mode="widthFix" src="{{item.poster}}"></image>
       <view class='title'>
-        <text>{{item.rawTitle}} <text class="rate">{{item.rate}}</text></text>
+        <text>{{item.title}} <text class="rate">{{item.rate}}</text></text>
       </view>
       <view class='info'>
-        <text>{{item.movieTypes}} / {{item.year}}</text>
+        <text>{{item.types}} / {{item.year}}</text>
       </view>
     </view>
 

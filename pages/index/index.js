@@ -22,7 +22,7 @@ Page({
 
     //发起网络请求
     wx.request({
-      url: `https://db.miaov.com/doubanapi/movies/info?page=${page}&size=${size}`,
+      url: `https://db.miaov.com/doubanapi/v0/movie/list?page=${page}&size=${size}`,
       //注意上面url后的网址是用的反引号`（来自ES6的模板字符串）而不是普通的引号
       success:(res)=>{
         const{data}=res.data 
@@ -38,6 +38,7 @@ Page({
     })
   },
   
+  //当页面拉到最底下时，加载更多的条目
   scrollHandler(){
     const{page}=this.data
     this.setData({
@@ -47,9 +48,11 @@ Page({
   },
 
   gotoDetailHandler(e){
+    console.log(e)
     const{id}=e.currentTarget.dataset
     wx.navigateTo({
-      url:'../movie-detail/movie-detail?id='+id,
+      url:'../movie-details/movie-details?id='+id,
+      
     })
   }
 })
