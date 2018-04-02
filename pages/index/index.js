@@ -48,7 +48,6 @@ Page({
   },
 
   gotoDetailHandler(e){
-    console.log(e)
     const{id}=e.currentTarget.dataset
     wx.navigateTo({
       url:'../movie-details/movie-details?id='+id,

@@ -1,5 +1,5 @@
 <view class='container'>
-  <video src='{{movie.video}}' poster='{{movie.cover}}' controls></video>
+  <video style='width:100%' src='{{movie.video}}' poster='{{movie.cover}}' controls></video>
   <view class='movie-content'>
     <view class='title'>
       <text>{{movie.title}}</text>

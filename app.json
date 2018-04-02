@@ -1,10 +1,14 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/subject-list/subject-list",
+    "pages/subject/subject",
+    
+    
     "pages/movie-details/movie-details",
     
     
-    "pages/subject/subject",
+    
     "pages/user/user"
   ],
 
