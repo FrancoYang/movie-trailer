@@ -53,5 +53,12 @@ Page({
       url:'../movie-details/movie-details?id='+id,
       
     })
+  },
+  
+  onShareAppMessage(res){
+    return{
+      title:"强哥的小程序",
+      
+    }
   }
 })

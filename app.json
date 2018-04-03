@@ -1,15 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/subject-list/subject-list",
     "pages/subject/subject",
-    
-    
-    "pages/movie-details/movie-details",
-    
-    
-    
-    "pages/user/user"
+    "pages/user/user",
+    "pages/subject-list/subject-list",
+    "pages/movie-details/movie-details"
   ],
 
   "window": {

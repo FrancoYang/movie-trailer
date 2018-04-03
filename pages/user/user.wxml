@@ -1,4 +1,11 @@
 <!--pages/user/user.wxml-->
 <view class='container'>
-  <view class=></view>
+  <view class='user-info'>
+    <image class='head' src='{{headUrl}}'></image>
+    <text class='name'>{{userName}}</text>
+  </view>
+
+  <view class='history'>
+    <text>历史记录</text>
+  </view>
 </view>
