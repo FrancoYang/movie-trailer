@@ -5,7 +5,13 @@
     <text class='name'>{{userName}}</text>
   </view>
 
-  <view class='history'>
-    <text>历史记录</text>
+  <view class='share' bindtap='gotoShare'>
+    <text>分享小程序</text>
+    <image src='/assets/images/more.png' mode='aspectFit'></image>
+  </view>
+
+  <view class='history' bindtap='gotoHistory'>
+    <text>观看记录</text>
+    <image src='/assets/images/more.png' mode='aspectFit'></image>
   </view>
 </view>

@@ -26,8 +26,17 @@ page{
   text-align: center;
 }
 
- .history{
+ .history,.share{
    padding: 40rpx 30rpx; 
   background-color: #fff;
   font-size: 30rpx;
+  margin-bottom: 20rpx;
+  position:relative;
 } 
+
+.history image,.share image{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  right: 20rpx;
+}
