@@ -4,7 +4,9 @@
     "pages/subject/subject",
     "pages/user/user",
     "pages/subject-list/subject-list",
-    "pages/movie-details/movie-details"
+    "pages/movie-details/movie-details",
+    "pages/share/share",
+    "pages/history-list/history-list"
   ],
 
   "window": {
