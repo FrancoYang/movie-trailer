@@ -14,6 +14,17 @@ Page({
     this.loadMovies()
   },
   
+  //保存看过的电影记录
+  saveData(data){
+    let history=wx.getStorageSync("history")||[]
+    history=history.filter((item)=>{
+      return item._id==data._id
+    })
+
+    history.unshift(data)
+    wx.setStorageSync("history",history)
+  },
+
   //加载电影数据
   loadMovies(){
     const{size,page}=this.data
@@ -27,7 +38,7 @@ Page({
       success:(res)=>{
         const{data}=res.data 
         //这里用到了ES6的解构赋值
-        const movies=this.data.movies
+        const movies=this.data.movies||[]
 
         for(let i=0;i<data.length;i+=2){
           movies.push([data[i],data[i+1]?data[i+1]:null])
@@ -48,9 +59,11 @@ Page({
   },
 
   gotoDetailHandler(e){
-    const{id}=e.currentTarget.dataset
+    const{movieData}=e.currentTarget.dataset
+    const{_id}=movieData
+    this.saveData(movieData)
     wx.navigateTo({
-      url:'../movie-details/movie-details?id='+id,
+      url:'../movie-details/movie-details?id='+_id,
       
     })
   },
