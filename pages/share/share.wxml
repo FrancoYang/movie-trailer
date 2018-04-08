@@ -1,2 +1,4 @@
 <!--pages/share/share.wxml-->
-<text>pages/share/share.wxml</text>
+<view class='share'><text>暂无小程序码</text></view>
+<!-- <image src='{{imgUrl}}' mode='aspectFit' bindtap='saveCode'></image>
+<view class='info'>点击保存小程序码分享给好友</view> -->

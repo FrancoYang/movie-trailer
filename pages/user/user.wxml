@@ -18,7 +18,7 @@
   <view class='history-list' wx:if="{{movies.length}}">
     <view class='movie-item' wx:for="{{movies}}" wx:key="{{item._id}}" bindtap='gotoDetail' data-movie-data='{{item}}'>
       <image class='poster' mode='widthFix' lazy-load='true' src='{{item.poster}}'></image>
-      <view class='{{title}}'>
+      <view class="title">
         <text>{{item.title}} <text class='rate'>{{item.rate}}</text></text>
       </view>
       <view class='year-type'>

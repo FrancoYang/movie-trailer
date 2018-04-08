@@ -43,7 +43,7 @@ Page({
     const{_id}=movieData
 
     wx.navigateTo({
-      url: '../movie-detail/movie-detail?id='+_id,
+      url: '../movie-details/movie-details?id='+_id,
     })
   }
 })

@@ -1,66 +1,54 @@
 // pages/history-list/history-list.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
+  data:{
+    movies:[],
+    loading:true,
+    page:1,
+    size:6
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onShow(options){
+    this.setData({
+      page:1,
+      movies:[]
+    })
+    this.loadMovies()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  loadMovies(){
+    let{page,size}=this.data
+    let history=wx.getStorageSync("history");
+    let data=[]
+    if(history){
+      for(let i=(page-1)*size;i<page*size;i++){
+        if(history[i]){
+          data.push(history[i])
+        }
+      }
+      this.getHistoryMovies(data)
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  getHistoryMovies(data){
+    this.setData({loading:true})
+    const movies=this.data.movies
+    for(let i=0;i<data.length;i+=2){
+      movies.push([data[i],data[i+1]?data[i+1]:null])
+    }
+    this.setData({movies,loading:false})
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  scrollHandler(){
+    const{page}=this.data
+    this.setData({
+      page:page+1
+    })
+    this.loadMovies()
   },
+  gotoDetailHandler(e){
+    const{movieData}=e.currentTarget.dataset
+    const{_id}=movieData
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    wx.navigateTo({
+      url: '../movie-details/movie-details?id='+_id,
+    })
   }
 })

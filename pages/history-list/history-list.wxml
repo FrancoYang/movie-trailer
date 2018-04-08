@@ -1,2 +1,8 @@
 <!--pages/history-list/history-list.wxml-->
-<text>pages/history-list/history-list.wxml</text>
+<import src="/common/template/template.wxml"/>
+<block wx:if="{{movies.length}}">
+  <template is="movie-list" data="{{movies,loading}}"/>
+</block>
+<block wx:else>
+  <view class='history'><text>暂无观看记录</text></view>
+</block>

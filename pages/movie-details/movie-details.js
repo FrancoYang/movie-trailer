@@ -1,9 +1,10 @@
 Page({
   data:{
-    movie:{}
+    movie:{},
+    time:""
   },
   onLoad(options){
-    const {id}=options
+    const id=options.id
 
     wx.showLoading({
       title: '',

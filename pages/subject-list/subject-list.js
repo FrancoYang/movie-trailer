@@ -1,6 +1,5 @@
 // pages/subject-list/subject-list.js
-//index.js
-//获取应用实例
+
 Page({
   data: {
     movies: [],
@@ -18,11 +17,27 @@ Page({
     this.loadMovies()
   },
 
+  //存储观看记录
+
+  saveData(data){
+    let history=wx.getStorageSync("history")||[]
+    history=history.filter((item)=>{
+      return item._id!==data._id
+    })
+    history.unshift(data)
+    wx.setStorageSync("history",history)
+  },
+
   //加载电影数据
   loadMovies() {
     const { size, page, type } = this.data
 
     this.setData({ loading: true })
+
+    wx.showLoading({
+      title:"",
+      mask:true
+    })
 
     //发起网络请求
     wx.request({
@@ -31,13 +46,14 @@ Page({
       success: (res) => {
         const { data } = res.data
         //这里用到了ES6的解构赋值
-        const movies = this.data.movies
+        const movies = this.data.movies||[]
 
         for (let i = 0; i < data.length; i += 2) {
-          movies.push([data[i], data[i + 1] ? data[i + 1] : null])
+          movies.push([data[i],data[i + 1] ? data[i + 1] : null])
         }
         this.setData({ movies, loading: false })
         //网络请求完成后是loading消失，到要再次请求的时候再显示
+        wx.hideLoading()
       }
     })
   },
@@ -52,9 +68,11 @@ Page({
   },
 
   gotoDetailHandler(e) {
-    const { id } = e.currentTarget.dataset
+    const { movieData } = e.currentTarget.dataset
+    const{_id}=movieData
+    this.saveData(movieData)
     wx.navigateTo({
-      url: '../movie-details/movie-details?id=' + id,
+      url: '../movie-details/movie-details?id=' + _id,
 
     })
   }

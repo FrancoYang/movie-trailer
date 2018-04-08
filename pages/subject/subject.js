@@ -30,9 +30,9 @@ Page({
   },
   
   typeHandler(e){
-    const{type}=e.currentTarget.dataset
+    const name=e.currentTarget.dataset.type
     wx.navigateTo({
-      url: '../subject-list/subject-list?type='+type,
+      url: '../subject-list/subject-list?type='+name,
     })
   }
 

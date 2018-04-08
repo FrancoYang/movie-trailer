@@ -1,1 +1,8 @@
 /* pages/history-list/history-list.wxss */
+.history{
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 30rpx;
+  color: #666;
+}
+@import "/common/style/style.wxss";

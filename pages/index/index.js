@@ -18,7 +18,7 @@ Page({
   saveData(data){
     let history=wx.getStorageSync("history")||[]
     history=history.filter((item)=>{
-      return item._id==data._id
+      return item._id!==data._id
     })
 
     history.unshift(data)
