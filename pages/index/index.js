@@ -59,6 +59,7 @@ Page({
   },
 
   gotoDetailHandler(e){
+    // console.log(e)
     const{movieData}=e.currentTarget.dataset
     const{_id}=movieData
     this.saveData(movieData)

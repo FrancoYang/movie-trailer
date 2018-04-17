@@ -4,6 +4,7 @@ Page({
     time:""
   },
   onLoad(options){
+    // console.log(options)
     const id=options.id
 
     wx.showLoading({
